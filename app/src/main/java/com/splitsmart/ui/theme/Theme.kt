@@ -14,19 +14,27 @@ import androidx.compose.material3.Shapes
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.ui.graphics.Color
 
+// Vibrant accent: Coral-ish
+private val AccentPrimaryLight = Color(0xFFFB5A5A)
+private val AccentPrimaryDark = Color(0xFFFF7A7A)
+
 private val LightColors = lightColorScheme(
-    primary = Color(0xFF2E7D32),
+    primary = AccentPrimaryLight,
     onPrimary = Color.White,
-    secondary = Color(0xFF66BB6A),
+    secondary = AccentPrimaryLight,
     onSecondary = Color.White,
-    surface = Color(0xFFF7FAF7),
-    onSurface = Color(0xFF1B1B1B)
+    background = Color(0xFFF8FAFC),
+    surface = Color.White,
+    onSurface = Color(0xFF111827)
 )
 private val DarkColors = darkColorScheme(
-    primary = Color(0xFF81C784),
-    onPrimary = Color(0xFF0A1E0B),
-    secondary = Color(0xFFA5D6A7),
-    onSecondary = Color(0xFF0A1E0B)
+    primary = AccentPrimaryDark,
+    onPrimary = Color(0xFF140101),
+    secondary = AccentPrimaryDark,
+    onSecondary = Color(0xFF140101),
+    background = Color(0xFF0B0F14),
+    surface = Color(0xFF121826),
+    onSurface = Color(0xFFE5E7EB)
 )
 
 private val AppTypography = Typography()

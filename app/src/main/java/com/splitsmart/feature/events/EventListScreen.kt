@@ -33,6 +33,7 @@ import java.text.NumberFormat
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
+import androidx.compose.foundation.clickable
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -45,12 +46,12 @@ fun EventListScreen(navController: NavHostController, vm: EventListViewModel = v
 			}
 		}
 	) { padding ->
-		EventListContent(padding = padding, vm = vm)
+		EventListContent(padding = padding, vm = vm, navController = navController)
 	}
 }
 
 @Composable
-private fun EventListContent(padding: PaddingValues, vm: EventListViewModel) {
+private fun EventListContent(padding: PaddingValues, vm: EventListViewModel, navController: NavHostController) {
 	val events by vm.events.collectAsState()
 	// Refresh when screen resumes
 	val lifecycleOwner = LocalLifecycleOwner.current
@@ -68,20 +69,28 @@ private fun EventListContent(padding: PaddingValues, vm: EventListViewModel) {
 	val currency = NumberFormat.getCurrencyInstance(Locale("si", "LK"))
 	currency.currency = java.util.Currency.getInstance("LKR")
 	val dateFmt = SimpleDateFormat("MMM d, yyyy", Locale.getDefault())
-	LazyColumn(modifier = Modifier.padding(padding).padding(12.dp)) {
-		items(events) { e ->
-			Card(elevation = CardDefaults.cardElevation(defaultElevation = 2.dp), modifier = Modifier.padding(bottom = 12.dp)) {
-				ListItem(
-					headlineContent = { Text(e.name) },
-					supportingContent = {
-						Text("${'$'}{e.participantCount} participants • ${'$'}{dateFmt.format(Date(e.dateMillis))}")
-					},
-					trailingContent = {
-						Text(currency.format(e.totalAmountCents / 100.0))
-					}
-				)
-			}
-		}
-	}
+    LazyColumn(modifier = Modifier
+        .padding(padding)
+        .padding(12.dp)) {
+        items(events) { e ->
+            Card(
+                elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
+                modifier = Modifier
+                    .padding(bottom = 12.dp)
+                    .clickable { navController.navigate("${Routes.EventEditor}?${Routes.EventEditorArg}=${'$'}{e.id}") }
+            ) {
+                ListItem(
+                    leadingContent = { Text("🎉") },
+                    headlineContent = { Text(e.name) },
+                    supportingContent = {
+                        Text("${'$'}{e.participantCount} participants • ${'$'}{dateFmt.format(Date(e.dateMillis))}")
+                    },
+                    trailingContent = {
+                        Text(currency.format(e.totalAmountCents / 100.0))
+                    }
+                )
+            }
+        }
+    }
 }
 

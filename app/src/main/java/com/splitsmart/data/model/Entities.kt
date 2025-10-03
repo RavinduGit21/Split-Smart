@@ -12,7 +12,8 @@ data class EventEntity(
 	val dateMillis: Long,
 	val location: String,
 	val description: String,
-	val totalAmountCents: Long
+	val totalAmountCents: Long,
+	val emoji: String
 )
 
 @Entity(
@@ -31,7 +32,27 @@ data class ParticipantEntity(
 	@PrimaryKey(autoGenerate = true) val id: Long = 0,
 	val eventId: Long,
 	val name: String,
-	val shareAmountCents: Long
+    val shareAmountCents: Long,
+    val paidAmountCents: Long = 0
+)
+
+@Entity(
+    tableName = "expense_items",
+    foreignKeys = [
+        ForeignKey(
+            entity = EventEntity::class,
+            parentColumns = ["id"],
+            childColumns = ["eventId"],
+            onDelete = ForeignKey.CASCADE
+        )
+    ],
+    indices = [Index("eventId")]
+)
+data class ExpenseItemEntity(
+    @PrimaryKey(autoGenerate = true) val id: Long = 0,
+    val eventId: Long,
+    val name: String,
+    val amountCents: Long
 )
 
 data class EventSummary(
@@ -39,7 +60,8 @@ data class EventSummary(
 	val name: String,
 	val dateMillis: Long,
 	val totalAmountCents: Long,
-	val participantCount: Int
+    val participantCount: Int,
+    val totalPaidCents: Long
 )
 
 

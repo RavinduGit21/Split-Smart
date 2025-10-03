@@ -6,11 +6,12 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.splitsmart.data.model.EventEntity
 import com.splitsmart.data.model.ParticipantEntity
+import com.splitsmart.data.model.ExpenseItemEntity
 
     @Database(
-    	entities = [EventEntity::class, ParticipantEntity::class],
-    	version = 2,
-	exportSchema = false
+    	entities = [EventEntity::class, ParticipantEntity::class, ExpenseItemEntity::class],
+    	version = 4,
+    exportSchema = false
 )
 abstract class AppDatabase : RoomDatabase() {
 	abstract fun eventDao(): EventDao
