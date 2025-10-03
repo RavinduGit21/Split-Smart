@@ -121,7 +121,7 @@ private fun HomeContent(padding: PaddingValues, navController: NavHostController
             items(state.events) { e ->
                 Card(
                     elevation = CardDefaults.cardElevation(defaultElevation = 1.dp),
-                    modifier = Modifier.clickable { navController.navigate("${Routes.EventEditor}?${Routes.EventEditorArg}=${e.id}") }
+                    modifier = Modifier.clickable { navController.navigate("${Routes.EventDetail}?${Routes.EventEditorArg}=${e.id}") }
                 ) {
                     Column(Modifier.padding(16.dp)) {
                         val dateFmt = SimpleDateFormat("MMM d, yyyy", Locale.getDefault())

@@ -1,14 +1,18 @@
 [
     {
-        "merged": "com.splitsmart.app-debug-57:/drawable_ic_launcher_foreground.xml.flat",
-        "source": "com.splitsmart.app-main-59:/drawable/ic_launcher_foreground.xml"
+        "merged": "com.splitsmart.app-debug-57:/xml_file_paths.xml.flat",
+        "source": "com.splitsmart.app-main-59:/xml/file_paths.xml"
     },
     {
-        "merged": "com.splitsmart.app-debug-57:/mipmap-anydpi-v26_ic_launcher.xml.flat",
-        "source": "com.splitsmart.app-main-59:/mipmap-anydpi-v26/ic_launcher.xml"
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.11.1\\com.splitsmart.app-debug-57:\\drawable_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.11.1\\com.splitsmart.app-main-59:\\drawable\\ic_launcher_foreground.xml"
     },
     {
-        "merged": "com.splitsmart.app-debug-57:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
-        "source": "com.splitsmart.app-main-59:/mipmap-anydpi-v26/ic_launcher_round.xml"
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.11.1\\com.splitsmart.app-debug-57:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.11.1\\com.splitsmart.app-main-59:\\mipmap-anydpi-v26\\ic_launcher.xml"
+    },
+    {
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.11.1\\com.splitsmart.app-debug-57:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.11.1\\com.splitsmart.app-main-59:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
     }
 ]

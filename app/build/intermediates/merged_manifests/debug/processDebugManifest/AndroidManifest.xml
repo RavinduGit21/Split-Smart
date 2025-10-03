@@ -25,6 +25,16 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/Theme.SplitSmart" >
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.splitsmart.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true" >
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
         <activity
             android:name="com.splitsmart.MainActivity"
             android:exported="true" >

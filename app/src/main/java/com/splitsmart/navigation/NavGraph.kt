@@ -6,12 +6,14 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.splitsmart.feature.events.EventListScreen
 import com.splitsmart.feature.events.EventEditorScreen
+import com.splitsmart.feature.events.EventDetailScreen
 import com.splitsmart.feature.home.HomeScreen
 
 object Routes {
     const val Home = "home"
     const val EventList = "event_list"
 	const val EventEditor = "event_editor"
+	const val EventDetail = "event_detail"
 	const val EventEditorArg = "eventId"
 }
 
@@ -23,6 +25,12 @@ fun AppNavHost(navController: NavHostController) {
         composable("${Routes.EventEditor}?${Routes.EventEditorArg}={${Routes.EventEditorArg}}") { backStackEntry ->
             val id = backStackEntry.arguments?.getString(Routes.EventEditorArg)?.toLongOrNull()
             EventEditorScreen(navController, initialEventId = id)
+        }
+        composable("${Routes.EventDetail}?${Routes.EventEditorArg}={${Routes.EventEditorArg}}") { backStackEntry ->
+            val id = backStackEntry.arguments?.getString(Routes.EventEditorArg)?.toLongOrNull()
+            if (id != null) {
+                EventDetailScreen(navController, eventId = id)
+            }
         }
     }
 }
