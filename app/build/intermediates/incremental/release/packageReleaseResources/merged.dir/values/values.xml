@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Split Smart</string>
+    <style name="Theme.SplitSmart" parent="Theme.Material3">
+		<item name="windowActionBar">false</item>
+		<item name="windowNoTitle">true</item>
+		
+	</style>
+</resources>
