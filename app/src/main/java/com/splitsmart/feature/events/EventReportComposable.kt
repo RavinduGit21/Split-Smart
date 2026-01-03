@@ -115,3 +115,4 @@ fun EventReportCards(state: EventDetailState, currency: NumberFormat) {
 }
 
 
+
